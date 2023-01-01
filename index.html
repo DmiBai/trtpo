@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style/calendar.css">
+
+</head>
+
+<body>
+<h1>Лучшие транспортные линии по всей стране!
+	<a href="pages/personal_account.html"><button id="account">Личный кабинет</button></a>
+	<button id="exit">Выйти</button></h1>
+
+
+<select id="s1">
+	<option selected="selected" value="default">Откуда</option>
+</select>
+
+<select id="s2">
+	<option selected="selected" value="default">Куда</option>
+</select>
+
+
+<br>
+<br>
+<a href="" onClick="return xCal('date4','-',1)">Выбрать дату:</a> <br>
+<input id="date4" type="text" value="" size="10" onClick="xCal()" onKeyUp="xCal()" oninput="xCal()">
+<script src="scripts/calendar.js"></script> <!-- calendar -->
+
+<br><br><input type="button" id="search" value="Оформить заказ">
+
+<div id="search_result">
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="scripts/index.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
