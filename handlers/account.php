@@ -1,14 +1,10 @@
 <?php
+require_once 'db_conn_parameters.php';
 
 $_POST = json_decode(file_get_contents('php://input'), true);
 
 if(isset($_POST['user'])){
-    try {
-        $db = new PDO('mysql:host=localhost;dbname=schedule', 'root', 'root');
-    } catch (PDOException $e) {
-        print "Error!: " . $e->getMessage() . "<br/>";
-        die();
-    }
+    $db = new PDO($dsn, $user, $password);
 
     $query = $db->prepare("SELECT cities.city AS where_from, C.city AS where_to, orders.time, orders.date
     FROM orders

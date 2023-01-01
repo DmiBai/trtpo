@@ -1,10 +1,10 @@
 <?php
-
-$db = new PDO('mysql:host=localhost;dbname=schedule', 'root', 'root');
+require_once 'db_conn_parameters.php';
 
 $_POST = json_decode(file_get_contents('php://input'), true);
 
 if(isset($_POST['from'])){
+    $db = new PDO($dsn, $user, $password);
 
     $query = $db->prepare("
         SELECT cities.city

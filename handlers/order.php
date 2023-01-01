@@ -1,15 +1,12 @@
 <?php
+require_once 'db_conn_parameters.php';
 
-$_POST = json_decode(file_get_contents('php://input'), true);
+$_POST = json_decode(file_get_contents('php://input'), true);//wout content type
 
 if (isset($_POST['user']) && isset($_POST['from']) && isset($_POST['to'])
     && isset($_POST['date']) && isset($_POST['time'])) {
-    try {
-        $db = new PDO('mysql:host=localhost;dbname=schedule', 'root', 'root');
-    } catch (PDOException $e) {
-        print "Error!: " . $e->getMessage() . "<br/>";
-        die();
-    }
+
+    $db = new PDO($dsn, $user, $password);
 
     $query = $db->prepare("
     INSERT orders(orders.route_id, orders.date ,orders.time, orders.user)
